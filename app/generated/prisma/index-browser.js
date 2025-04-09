@@ -120,6 +120,7 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.PurchaseScalarFieldEnum = {
   id: 'id',
   email: 'email',
+  firstName: 'firstName',
   count: 'count',
   lastOrder: 'lastOrder',
   createdAt: 'createdAt',
@@ -129,6 +130,7 @@ exports.Prisma.PurchaseScalarFieldEnum = {
 exports.Prisma.GiftTokenScalarFieldEnum = {
   id: 'id',
   email: 'email',
+  firstName: 'firstName',
   token: 'token',
   used: 'used',
   createdAt: 'createdAt'

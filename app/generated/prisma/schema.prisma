@@ -15,8 +15,9 @@ datasource db {
 }
 
 model Purchase {
-  id        String   @id @default(cuid())
+  id        String   @id @default(uuid())
   email     String
+  firstName String?
   count     Int      @default(1)
   lastOrder String?
   createdAt DateTime @default(now())
@@ -24,8 +25,9 @@ model Purchase {
 }
 
 model GiftToken {
-  id        String   @id @default(cuid())
+  id        String   @id @default(uuid())
   email     String
+  firstName String?
   token     String   @unique
   used      Boolean  @default(false)
   createdAt DateTime @default(now())
