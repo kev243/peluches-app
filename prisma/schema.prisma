@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../app/generated/prisma"
+  // output   = "../app/generated/prisma"
 }
 
 datasource db {
@@ -17,7 +17,7 @@ datasource db {
 
 model Purchase {
   id        String   @id @default(uuid())
-  email     String
+  email     String @unique
   firstName String?
   count     Int      @default(1)
   lastOrder String?

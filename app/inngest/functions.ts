@@ -2,6 +2,8 @@ import CongratulationEmail from "@/components/emails/congratulations-email";
 import FirstEmail from "@/components/emails/first-email";
 import { inngest } from "@/lib/inngest";
 import prisma from "@/lib/prisma";
+
+// import prisma from "@/lib/prisma";
 import { resend } from "@/lib/resend";
 import { orderCreatedSchema } from "@/lib/zod-shemas";
 import React from "react";
@@ -23,9 +25,10 @@ export const orderCreatedHandler = inngest.createFunction(
         data: {
           email,
           firstName: firstName ?? firstName,
-          lastOrder: orderId,
+          lastOrder: String(orderId),
         },
       });
+
       // Envoie de l'e-mail de première commande
       await resend.emails.send({
         from: "Calinou <onboarding@resend.dev>",
@@ -35,6 +38,7 @@ export const orderCreatedHandler = inngest.createFunction(
           firstName: firstName ?? "cher(e) client(e)",
         }),
       });
+
       console.log(`Nouvelle commande de ${email}, première commande.`);
       return;
     }
@@ -44,7 +48,7 @@ export const orderCreatedHandler = inngest.createFunction(
       where: { email },
       data: {
         count: customer.count + 1,
-        lastOrder: orderId,
+        lastOrder: String(orderId),
       },
     });
 

@@ -1,6 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 
-//permet d’éviter de recréer des instances prisma à chaque fois en dev
 const prismaClientSingleton = () => {
   return new PrismaClient();
 };
