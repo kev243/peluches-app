@@ -69,7 +69,7 @@ export const orderCreatedHandler = inngest.createFunction(
       });
 
       // Envoie de  l'e-mail avec le lien pour choisir la peluche gratuite
-      const giftLink = `https://localhost:3000/cadeau?token=${token}`;
+      const giftLink = `https://localhost:3000/gift?token=${token}`;
 
       // Envoie de l'e-mail de félicitations
       await resend.emails.send({

@@ -30,6 +30,7 @@ model GiftToken {
   email     String
   firstName String?
   token     String   @unique
+  giftSlug  String?
   used      Boolean  @default(false)
   createdAt DateTime @default(now())
 }
