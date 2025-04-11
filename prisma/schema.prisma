@@ -33,4 +33,7 @@ model GiftToken {
   giftSlug  String?
   used      Boolean  @default(false)
   createdAt DateTime @default(now())
+  shopifyOrderId  String?  // champ pour l'ID de commande Shopify
+  usedAt          DateTime? // champ pour la date d'utilisation
+  shippingAddress String?  //  champ pour l'adresse de livraison
 }

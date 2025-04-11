@@ -37,7 +37,7 @@ export const FirstEmail = ({ firstName }: FirstEmailProps) => (
         </Heading>
         <Section style={body}>
           <Text style={paragraph}>
-            Bonjour ${firstName ? firstName : "cher(e) client(e)"},
+            Bonjour {firstName ? firstName : "cher(e) client(e)"},
           </Text>
           <Text style={paragraph}>
             Nous avons une petite surprise pour vous : après 5 commandes, vous

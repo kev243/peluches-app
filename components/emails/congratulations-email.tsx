@@ -41,7 +41,7 @@ export const CongratulationEmail = ({
         </Heading>
         <Section style={body}>
           <Text style={paragraph}>
-            Bonjour ${firstName ? firstName : "cher(e) client(e)"},
+            Bonjour {firstName ? firstName : "cher(e) client(e)"},
           </Text>
           <Text style={paragraph}>
             Merci pour vos 5 commandes ! Vous pouvez choisir votre peluche
