@@ -40,18 +40,33 @@ Ce projet est le backend d'une application permettant de gérer des commandes et
    ```
 
 2. Installez les dépendances :
-   npm install
+
+```bash
+npm install
+```
 
 3. Configurez les variables d'environnement : Créez un fichier .env à la racine du projet et ajoutez les variables suivantes :
+
+   ```bash
    DATABASE_URL=postgresql://user:password@localhost:5432/peluche
    SHOPIFY_STORE_DOMAIN=votre-boutique.myshopify.com
    SHOPIFY_STOREFRONT_TOKEN=votre-token-storefront
    SHOPIFY_WEBHOOK_SECRET=votre-secret-webhook
    RESEND_API_KEY=votre-api-key-resend
+   ```
+
+````
+
 
 4. Configurez la base de données avec Prisma :
 
+```bash
 npx prisma migrate dev --name init
+````
 
 5. Lancez le serveur de développement :
+
+```bash
    npm run dev
+
+```
