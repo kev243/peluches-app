@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Peluche Backend
 
-## Getting Started
+Ce projet est le backend d'une application permettant de gérer des commandes et des cadeaux pour une boutique en ligne de peluches. Il utilise **Next.js**, **Prisma**, et **Inngest** pour gérer les webhooks, les bases de données, et les flux d'événements.
 
-First, run the development server:
+## 🚀 Fonctionnalités
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Gestion des commandes Shopify via des webhooks.
+- Génération et gestion de tokens pour les cadeaux.
+- Validation des adresses avec **Zod**.
+- Envoi d'e-mails de confirmation avec **Resend**.
+- API pour récupérer les produits Shopify.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technologies utilisées
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js** (v15.2.5) : Framework React pour le rendu côté serveur et les API routes.
+- **Prisma** (v6.6.0) : ORM pour interagir avec la base de données PostgreSQL avec NEON.
+- **Inngest** (v3.34.4) : Gestion des flux d'événements.
+- **React** (v19.0.0) : Bibliothèque pour construire l'interface utilisateur.
+- **Zod** (v3.24.2) : Validation des schémas de données.
+- **Resend** (v4.2.0) : Envoi d'e-mails transactionnels.
+- **TailwindCSS** : Framework CSS pour le style.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙️ Installation
 
-## Learn More
+### Prérequis
 
-To learn more about Next.js, take a look at the following resources:
+- Node.js (v18 ou supérieur)
+- PostgreSQL
+- Un compte Shopify avec un token d'accès Storefront
+- Un compte Resend pour l'envoi d'e-mails
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Étapes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clonez le dépôt :
 
-## Deploy on Vercel
+   ```bash
+   git clone https://github.com/votre-utilisateur/peluche-backend.git
+   cd peluche-backend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Installez les dépendances :
+   npm install
+
+3. Configurez les variables d'environnement : Créez un fichier .env à la racine du projet et ajoutez les variables suivantes :
+   DATABASE_URL=postgresql://user:password@localhost:5432/peluche
+   SHOPIFY_STORE_DOMAIN=votre-boutique.myshopify.com
+   SHOPIFY_STOREFRONT_TOKEN=votre-token-storefront
+   SHOPIFY_WEBHOOK_SECRET=votre-secret-webhook
+   RESEND_API_KEY=votre-api-key-resend
+
+4. Configurez la base de données avec Prisma :
+
+npx prisma migrate dev --name init
+
+5. Lancez le serveur de développement :
+   npm run dev
