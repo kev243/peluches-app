@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import { getGiftProducts } from "@/lib/shopify";
+import { getGiftProducts, ShopifyProduct } from "@/lib/shopify";
 
 export async function GET() {
   const products = await getGiftProducts();
-  const simplified = products.map((p: any) => ({
+  const simplified = products.map((p: ShopifyProduct) => ({
     id: p.id,
     title: p.title,
     image: p.images.edges[0]?.node.url || "",

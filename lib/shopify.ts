@@ -2,7 +2,7 @@
 const domain = process.env.SHOPIFY_STORE_DOMAIN!;
 const storefrontToken = process.env.SHOPIFY_STOREFRONT_TOKEN!;
 
-interface ShopifyProduct {
+export interface ShopifyProduct {
   id: string;
   title: string;
   handle: string;
