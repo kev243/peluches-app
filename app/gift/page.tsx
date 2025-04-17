@@ -4,6 +4,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import React from "react";
 import AddressForm from "./address-form";
 import { AddressData, Product } from "@/lib/types";
+import Image from "next/image";
 
 export default function GiftPage() {
   const searchParams = useSearchParams();
@@ -86,8 +87,12 @@ export default function GiftPage() {
       setTimeout(() => {
         router.push("/gift/confirmation");
       }, 2000);
-    } catch (err: any) {
-      setError(err.message || "Une erreur est survenue lors de la commande");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || "Une erreur est survenue lors de la commande");
+      } else {
+        setError("Une erreur inconnue est survenue");
+      }
       console.error(err);
     } finally {
       setLoading(false);
@@ -155,7 +160,7 @@ export default function GiftPage() {
                   className="border border-gray-200 p-4 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer bg-white"
                 >
                   <div className="aspect-square overflow-hidden rounded-lg mb-4">
-                    <img
+                    <Image
                       src={product.image || "/placeholder.svg"}
                       alt={product.title}
                       className="w-full h-full object-cover"
@@ -203,7 +208,7 @@ export default function GiftPage() {
               {selectedProduct && (
                 <div className="flex flex-col items-center">
                   <div className="w-50 h-50 overflow-hidden rounded-lg mb-4 ">
-                    <img
+                    <Image
                       src={selectedProduct.image || "/placeholder.svg"}
                       alt={selectedProduct.title}
                       className="w-full h-full object-cover"

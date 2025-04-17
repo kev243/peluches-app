@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ConfirmationPage() {
   return (
     <div className="max-w-lg mx-auto p-6 text-center">
@@ -26,19 +28,20 @@ export default function ConfirmationPage() {
         </div>
 
         <p className="text-lg mb-4">
-          Votre peluche gratuite sera bientôt expédiée à l'adresse indiquée.
+          Votre peluche gratuite sera bientôt expédiée à l&apos;adresse
+          indiquée.
         </p>
 
         <p className="text-gray-600 mb-6">
           Vous recevrez un email de confirmation avec les détails de livraison.
         </p>
 
-        <a
+        <Link
           href="/"
           className="inline-block bg-pink-600 hover:bg-pink-700 text-white font-medium py-2 px-6 rounded-md transition-colors"
         >
-          Retour à l'accueil
-        </a>
+          Retour à l&apos;accueil
+        </Link>
       </div>
     </div>
   );

@@ -75,7 +75,7 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="firstName" className="block text-sm font-medium ">
+          <label htmlFor="firstName" className="block text-sm font-medium">
             Prénom *
           </label>
           <input
@@ -84,7 +84,9 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
-            className={`w-full px-3 py-2 border rounded-md ${errors.firstName ? "border-red-500" : "border-gray-300"}`}
+            className={`w-full px-3 py-2 border rounded-md ${
+              errors.firstName ? "border-red-500" : "border-gray-300"
+            }`}
           />
           {errors.firstName && (
             <p className="mt-1 text-sm text-red-600">{errors.firstName}</p>
@@ -92,7 +94,7 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
         </div>
 
         <div>
-          <label htmlFor="lastName" className="block text-sm font-medium ">
+          <label htmlFor="lastName" className="block text-sm font-medium">
             Nom *
           </label>
           <input
@@ -101,7 +103,9 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-            className={`w-full px-3 py-2 border rounded-md ${errors.lastName ? "border-red-500" : "border-gray-300"}`}
+            className={`w-full px-3 py-2 border rounded-md ${
+              errors.lastName ? "border-red-500" : "border-gray-300"
+            }`}
           />
           {errors.lastName && (
             <p className="mt-1 text-sm text-red-600">{errors.lastName}</p>
@@ -110,7 +114,7 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
       </div>
 
       <div>
-        <label htmlFor="address1" className="block text-sm font-medium ">
+        <label htmlFor="address1" className="block text-sm font-medium">
           Adresse *
         </label>
         <input
@@ -119,7 +123,9 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
           name="address1"
           value={formData.address1}
           onChange={handleChange}
-          className={`w-full px-3 py-2 border rounded-md ${errors.address1 ? "border-red-500" : "border-gray-300"}`}
+          className={`w-full px-3 py-2 border rounded-md ${
+            errors.address1 ? "border-red-500" : "border-gray-300"
+          }`}
         />
         {errors.address1 && (
           <p className="mt-1 text-sm text-red-600">{errors.address1}</p>
@@ -127,8 +133,8 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
       </div>
 
       <div>
-        <label htmlFor="address2" className="block text-sm font-medium ">
-          Complément d'adresse
+        <label htmlFor="address2" className="block text-sm font-medium">
+          Complément d&apos;adresse
         </label>
         <input
           type="text"
@@ -142,7 +148,7 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label htmlFor="city" className="block text-sm font-medium ">
+          <label htmlFor="city" className="block text-sm font-medium">
             Ville *
           </label>
           <input
@@ -151,7 +157,9 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
             name="city"
             value={formData.city}
             onChange={handleChange}
-            className={`w-full px-3 py-2 border rounded-md ${errors.city ? "border-red-500" : "border-gray-300"}`}
+            className={`w-full px-3 py-2 border rounded-md ${
+              errors.city ? "border-red-500" : "border-gray-300"
+            }`}
           />
           {errors.city && (
             <p className="mt-1 text-sm text-red-600">{errors.city}</p>
@@ -159,7 +167,7 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
         </div>
 
         <div>
-          <label htmlFor="zip" className="block text-sm font-medium ">
+          <label htmlFor="zip" className="block text-sm font-medium">
             Code postal *
           </label>
           <input
@@ -168,7 +176,9 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
             name="zip"
             value={formData.zip}
             onChange={handleChange}
-            className={`w-full px-3 py-2 border rounded-md ${errors.zip ? "border-red-500" : "border-gray-300"}`}
+            className={`w-full px-3 py-2 border rounded-md ${
+              errors.zip ? "border-red-500" : "border-gray-300"
+            }`}
           />
           {errors.zip && (
             <p className="mt-1 text-sm text-red-600">{errors.zip}</p>
@@ -178,7 +188,7 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label htmlFor="province" className="block text-sm font-medium ">
+          <label htmlFor="province" className="block text-sm font-medium">
             Région/Département
           </label>
           <input
@@ -192,7 +202,7 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
         </div>
 
         <div>
-          <label htmlFor="country" className="block text-sm font-medium ">
+          <label htmlFor="country" className="block text-sm font-medium">
             Pays *
           </label>
           <select
@@ -200,7 +210,9 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
             name="country"
             value={formData.country}
             onChange={handleChange}
-            className={`w-full px-3 py-2 border rounded-md ${errors.country ? "border-red-500" : "border-gray-300"}`}
+            className={`w-full px-3 py-2 border rounded-md ${
+              errors.country ? "border-red-500" : "border-gray-300"
+            }`}
           >
             <option value="France">France</option>
             <option value="Belgique">Belgique</option>
@@ -215,7 +227,7 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium ">
+        <label htmlFor="phone" className="block text-sm font-medium">
           Téléphone
         </label>
         <input
@@ -225,7 +237,9 @@ export default function AddressForm({ onSubmit, isLoading }: AddressFormProps) {
           value={formData.phone}
           onChange={handleChange}
           placeholder="Ex: 8192345678"
-          className={`w-full px-3 py-2 border rounded-md ${errors.phone ? "border-red-500" : "border-gray-300"}`}
+          className={`w-full px-3 py-2 border rounded-md ${
+            errors.phone ? "border-red-500" : "border-gray-300"
+          }`}
         />
         {errors.phone && (
           <p className="mt-1 text-sm text-red-600">{errors.phone}</p>

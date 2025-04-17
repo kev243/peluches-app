@@ -2,7 +2,41 @@
 const domain = process.env.SHOPIFY_STORE_DOMAIN!;
 const storefrontToken = process.env.SHOPIFY_STOREFRONT_TOKEN!;
 
-export async function getGiftProducts() {
+interface ShopifyProduct {
+  id: string;
+  title: string;
+  handle: string;
+  images: {
+    edges: {
+      node: {
+        url: string;
+        altText: string | null;
+      };
+    }[];
+  };
+  variants: {
+    edges: {
+      node: {
+        id: string;
+        price: {
+          amount: string;
+        };
+      };
+    }[];
+  };
+}
+
+interface ShopifyResponse {
+  data: {
+    products: {
+      edges: {
+        node: ShopifyProduct;
+      }[];
+    };
+  };
+}
+
+export async function getGiftProducts(): Promise<ShopifyProduct[]> {
   const res = await fetch(`https://${domain}/api/2023-10/graphql.json`, {
     method: "POST",
     headers: {
@@ -44,7 +78,7 @@ export async function getGiftProducts() {
     }),
   });
 
-  const json = await res.json();
-  console.log("les products:" + json);
-  return json.data.products.edges.map((edge: any) => edge.node);
+  const json: ShopifyResponse = await res.json();
+  console.log("les products:", json);
+  return json.data.products.edges.map((edge) => edge.node);
 }

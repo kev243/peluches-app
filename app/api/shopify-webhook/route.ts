@@ -2,6 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 import { inngest } from "@/lib/inngest";
 
+interface ShopifyWebhookData {
+  customer?: {
+    email?: string;
+    first_name?: string;
+  };
+  id?: string;
+}
+
 // Il s'agit du code secret utilisé pour vérifier la signature du webhook Shopify
 const SHOPIFY_WEBHOOK_SECRET = process.env.SHOPIFY_WEBHOOK_SECRET!; //Remplacez par votre secret Shopify
 
@@ -26,7 +34,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Si la signature est valide, on traite le webhook
-  const data = JSON.parse(rawBody);
+  const data: ShopifyWebhookData = JSON.parse(rawBody);
   const email = data?.customer?.email; // Récupération de l'email du client
   const firstName = data?.customer?.first_name; // Récupération du prénom du client
   const orderId = data?.id; // Récupération de l'ID de la commande

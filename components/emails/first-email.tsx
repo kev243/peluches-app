@@ -107,9 +107,9 @@ const paragraph = {
   lineHeight: "26px",
 };
 
-const link = {
-  color: "#FF6363",
-};
+// const link = {
+//   color: "#FF6363",
+// };
 
 const hr = {
   borderColor: "#dddddd",
