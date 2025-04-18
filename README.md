@@ -2,6 +2,8 @@
 
 Ce projet est une application permettant de gérer des commandes et des cadeaux pour une boutique en ligne de peluches. Une intégration Shopify avec logique de fidélisation client : à chaque 5ᵉ commande, le client reçoit un e-mail contenant un lien pour choisir une peluche gratuite. 🎁 Il utilise **Next.js**, **Prisma**, et **Inngest** pour gérer les webhooks, les bases de données, et les flux d'événements.
 
+![Capture d'écran 1](/img/cap1.png)
+
 ## Fonctionnalités
 
 - Détection de première commande (e-mail personnalisé)
@@ -14,6 +16,8 @@ Ce projet est une application permettant de gérer des commandes et des cadeaux 
 - API pour récupérer les produits Shopify.
 - Webhooks Shopify via [Inngest](https://www.inngest.com/)
 - Envois d’e-mails via [Resend](https://resend.com/)
+
+![Capture d'écran 2](/img/cap2.png)
 
 ## 🛠️ Technologies utilisées
 
