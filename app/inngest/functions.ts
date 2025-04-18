@@ -56,6 +56,14 @@ export const orderCreatedHandler = inngest.createFunction(
       `Commande de ${email}. Total des commandes: ${updatedCustomer.count}`
     );
 
+    const baseUrl = process.env.APP_BASE_URL;
+
+    if (!baseUrl) {
+      throw new Error(
+        "La variable d'environnement APP_BASE_URL n'est pas définie."
+      );
+    }
+
     // On vérifie si c'est le 5e achat
     if (updatedCustomer.count === 5) {
       // On génére un token unique
@@ -69,7 +77,7 @@ export const orderCreatedHandler = inngest.createFunction(
       });
 
       // Envoie de  l'e-mail avec le lien pour choisir la peluche gratuite
-      const giftLink = `https://localhost:3000/gift?token=${token}`;
+      const giftLink = `${baseUrl}/gift?token=${token}`;
 
       // Envoie de l'e-mail de félicitations
       await resend.emails.send({

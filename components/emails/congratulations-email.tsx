@@ -17,9 +17,13 @@ interface CongratulationEmailProps {
   firstName?: string;
 }
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
+const baseUrl = process.env.APP_BASE_URL;
+
+if (!baseUrl) {
+  throw new Error(
+    "La variable d'environnement APP_BASE_URL n'est pas définie."
+  );
+}
 
 export const CongratulationEmail = ({
   giftLink,
